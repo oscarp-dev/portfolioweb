@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oscar Pérez — Frontend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader-count-wrap">
+      <span id="loaderCount">00</span>
+    </div>
+    <div class="loader-name-wrap">
+      <span class="ln-c">O</span><span class="ln-c">S</span><span class="ln-c">C</span><span class="ln-c">A</span><span class="ln-c">R</span>
+      <span class="ln-sp">&nbsp;</span>
+      <span class="ln-c">P</span><span class="ln-c">É</span><span class="ln-c">R</span><span class="ln-c">E</span><span class="ln-c">Z</span>
+    </div>
+    <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+    <p class="loader-role">Frontend Developer</p>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#" class="nav-logo">
+      Oscar <span class="logo-accent">Pérez</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#skills">Stack</a></li>
+      <li><a href="#experience">Experiencia</a></li>
+      <li><a href="#work">Proyectos</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Hablemos</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <!-- Floating label top -->
+    <div class="hero-label">
+      <span class="dot"></span>
+      Disponible para proyectos
+    </div>
+
+    <!-- Main content -->
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="line">Hola, soy Oscar,</span>
+          <span class="line"><span class="accent">Frontend</span> Developer</span>
+        </h1>
+
+        <p class="hero-desc">
+          En constante crecimiento. Construyo en la web con
+          <strong>ambición</strong>, <strong>curiosidad</strong>
+          y la <strong>determinación</strong> de superarme en cada proyecto.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#work" class="btn-primary magnetic">
+            Ver proyectos
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="hero-socials">
+            <a href="https://github.com/oscarp-dev" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/oscar-perez-colina/" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="assets/oscar-perez-cv.pdf" download class="icon-btn" aria-label="Descargar CV">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                <polyline points="14,2 14,8 20,8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10,9 9,9 8,9"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo card -->
+      <div class="hero-visual">
+        <div class="photo-card">
+          <div class="photo-frame">
+            <img src="assets/avatar.jpg" alt="Oscar Pérez" class="photo-img" onerror="this.classList.add('errored')" />
+            <div class="photo-placeholder">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+
+<!--    
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span>Frontend · React · Next.js · TypeScript · CSS · Motion · UI · UX · </span>
+        <span>Frontend · React · Next.js · TypeScript · CSS · Motion · UI · UX · </span>
+        <span>Frontend · React · Next.js · TypeScript · CSS · Motion · UI · UX · </span>
+      </div>
+    </div> -->
+
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="skills-header">
+      <p class="section-eyebrow" data-reveal="up" data-delay="0">— Stack</p>
+      <h2 class="section-title" data-reveal="up" data-delay="80">
+        Herramientas que <span class="accent">domino.</span>
+      </h2>
+      <p class="section-sub" data-reveal="up" data-delay="140">
+        Los lenguajes y tecnologías con los que construyo cada día.
+      </p>
+    </div>
+
+    <!-- Single marquee row → (4 copies for gapless loop) -->
+    <div class="skills-track-wrap" data-reveal="up" data-delay="180">
+      <div class="skills-track skills-track--fwd">
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" class="sk-icon"><span>HTML5</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" class="sk-icon"><span>CSS3</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" class="sk-icon"><span>JavaScript</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="" class="sk-icon"><span>PHP</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" class="sk-icon"><span>MySQL</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" class="sk-icon"><span>Git</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" class="sk-icon sk-icon--invert"><span>GitHub</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="" class="sk-icon"><span>Figma</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" class="sk-icon"><span>VS Code</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" class="sk-icon"><span>SQL</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" class="sk-icon"><span>HTML5</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" class="sk-icon"><span>CSS3</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" class="sk-icon"><span>JavaScript</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="" class="sk-icon"><span>PHP</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" class="sk-icon"><span>MySQL</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" class="sk-icon"><span>Git</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" class="sk-icon sk-icon--invert"><span>GitHub</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="" class="sk-icon"><span>Figma</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" class="sk-icon"><span>VS Code</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" class="sk-icon"><span>SQL</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" class="sk-icon"><span>HTML5</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" class="sk-icon"><span>CSS3</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" class="sk-icon"><span>JavaScript</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="" class="sk-icon"><span>PHP</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" class="sk-icon"><span>MySQL</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" class="sk-icon"><span>Git</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" class="sk-icon sk-icon--invert"><span>GitHub</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="" class="sk-icon"><span>Figma</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" class="sk-icon"><span>VS Code</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" class="sk-icon"><span>SQL</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" class="sk-icon"><span>HTML5</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" class="sk-icon"><span>CSS3</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" class="sk-icon"><span>JavaScript</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="" class="sk-icon"><span>PHP</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" class="sk-icon"><span>MySQL</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" class="sk-icon"><span>Git</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" class="sk-icon sk-icon--invert"><span>GitHub</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="" class="sk-icon"><span>Figma</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" class="sk-icon"><span>VS Code</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" class="sk-icon"><span>SQL</span></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="exp" id="experience">
+    <div class="exp-inner">
+
+      <div class="exp-header">
+        <p class="section-eyebrow" data-reveal="up" data-delay="0">— Experiencia</p>
+        <h2 class="section-title" data-reveal="up" data-delay="80">Mi evolución <span class="accent">profesional.</span></h2>
+        <p class="section-sub" data-reveal="up" data-delay="140">Experiencia aplicada en proyectos reales, cuidando estructura, rendimiento y calidad de código.</p>
+      </div>
+
+      <div class="exp-list">
+
+        <!-- Freelance (actual) -->
+        <div class="exp-item" data-reveal="up" data-delay="100">
+          <div class="exp-tl">
+            <div class="exp-dot exp-dot--live"></div>
+            <div class="exp-tl-line"></div>
+          </div>
+          <div class="exp-card exp-card--current">
+            <div class="exp-card-top">
+              <span class="exp-period">Sep 2025 — Actualidad</span>
+              <span class="exp-status">Activo</span>
+            </div>
+            <div class="exp-card-heading">
+              <h3 class="exp-role">Desarrollador de Aplicaciones Web</h3>
+              <span class="exp-company">Freelance</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Desarrollo de webs y aplicaciones para clientes reales, de principio a fin.</li>
+              <li>Diseño de interfaces claras, responsive y orientadas a conversión/uso.</li>
+              <li>Entrega mantenible: estructura, buenas prácticas y control de versiones.</li>
+            </ul>
+            <div class="exp-stack">
+              <span class="exp-tag">HTML</span>
+              <span class="exp-tag">CSS</span>
+              <span class="exp-tag">JS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zaitec -->
+        <div class="exp-item" data-reveal="up" data-delay="200">
+          <div class="exp-tl">
+            <div class="exp-dot"></div>
+          </div>
+          <div class="exp-card">
+            <div class="exp-card-top">
+              <span class="exp-period">Sep 2025 — Dic 2025</span>
+            </div>
+            <div class="exp-card-heading">
+              <h3 class="exp-role">Desarrollador de Aplicaciones Web</h3>
+              <span class="exp-company">Zaitec</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Desarrollo y mantenimiento de aplicaciones web en entorno real.</li>
+              <li>Colaboración en equipo: control de versiones, revisión y mejoras continuas.</li>
+              <li>Soporte a necesidades del negocio con soluciones prácticas y consistentes.</li>
+            </ul>
+            <div class="exp-stack">
+              <span class="exp-tag">HTML</span>
+              <span class="exp-tag">CSS</span>
+              <span class="exp-tag">JS</span>
+              <span class="exp-tag">PHP</span>
+              <span class="exp-tag">SQL</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK / PROJECTS -->
+  <section class="work" id="work">
+    <div class="work-header">
+      <p class="section-eyebrow">Proyectos seleccionados</p>
+      <h2 class="section-title">Lo que he <span class="accent">construido</span></h2>
+      <p class="section-sub">Haz click en cualquier proyecto para explorarlo.</p>
+    </div>
+
+    <div class="projects-selector" id="projectsSelector">
+
+      <!-- PROJECT 1: Web de Larana -->
+      <div class="proj-option active" data-index="0"
+           style="--bg: url('assets/projects/larana.png')">
+        <div class="proj-shadow"></div>
+        <div class="proj-label">
+          <div class="proj-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.57L23 6H6"/>
+            </svg>
+          </div>
+          <div class="proj-info">
+            <div class="proj-meta">
+              <span class="proj-name">Web de Larana</span>
+              <span class="proj-badge">Aplicación web</span>
+            </div>
+            <span class="proj-tags">HTML · CSS · JS · PHP · SQL</span>
+            <p class="proj-desc">App full-stack con autenticación, panel administrativo, integración de base de datos y carrito con persistencia.</p>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/oscarp-dev/larana-web" target="_blank" rel="noopener" class="proj-link proj-link--gh" aria-label="GitHub">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2: Web Douglas Serrano -->
+      <div class="proj-option" data-index="1"
+           style="--bg: url('assets/projects/douglas.png')">
+        <div class="proj-shadow"></div>
+        <div class="proj-label">
+          <div class="proj-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <div class="proj-info">
+            <div class="proj-meta">
+              <span class="proj-name">Web Douglas Serrano</span>
+              <span class="proj-badge">Web</span>
+            </div>
+            <span class="proj-tags">HTML · CSS · JS</span>
+            <p class="proj-desc">Web mobile-first para profesional independiente, orientada a conversión mediante estructura clara y rendimiento optimizado.</p>
+          </div>
+          <div class="proj-links">
+            <a href="https://douglas-serrano-barbero.vercel.app/" target="_blank" rel="noopener" class="proj-link proj-link--live" aria-label="Ver sitio">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3: Carrito de compras -->
+      <div class="proj-option" data-index="2"
+           style="--bg: url('assets/projects/carrito.png')">
+        <div class="proj-shadow"></div>
+        <div class="proj-label">
+          <div class="proj-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+          </div>
+          <div class="proj-info">
+            <div class="proj-meta">
+              <span class="proj-name">Carrito de compras</span>
+              <span class="proj-badge">Carrito</span>
+            </div>
+            <span class="proj-tags">HTML · CSS · JS</span>
+            <p class="proj-desc">Gestión de estado en memoria, actualización dinámica del DOM, incremento de cantidades y eliminación de productos.</p>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/oscarp-dev/carrito-compras-js" target="_blank" rel="noopener" class="proj-link proj-link--gh" aria-label="GitHub">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </a>
+            <a href="https://oscarp-dev.github.io/carrito-compras-js/" target="_blank" rel="noopener" class="proj-link proj-link--live" aria-label="Ver sitio">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+
+      <!-- Left: info + social cards -->
+      <div class="contact-left">
+        <p class="section-eyebrow" data-reveal="up" data-delay="0">— Hablemos</p>
+        <h2 class="contact-title" data-reveal="up" data-delay="80">
+          ¿Hablemos<span class="accent">?</span>
+        </h2>
+        <p class="contact-sub" data-reveal="up" data-delay="160">
+          Disponible para proyectos freelance,<br />
+          colaboraciones y tiempo completo.
+        </p>
+
+        <!-- Social / contact cards -->
+        <div class="csc-list" data-reveal="up" data-delay="260">
+
+          <a href="https://github.com/oscarp-dev" target="_blank" rel="noopener" class="csc-card">
+            <div class="csc-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+            </div>
+            <div class="csc-info">
+              <span class="csc-platform">GitHub</span>
+              <span class="csc-handle">@oscarp-dev</span>
+            </div>
+            <svg class="csc-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+
+          <a href="https://www.linkedin.com/in/oscar-perez-colina/" target="_blank" rel="noopener" class="csc-card">
+            <div class="csc-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+            </div>
+            <div class="csc-info">
+              <span class="csc-platform">LinkedIn</span>
+              <span class="csc-handle">Oscar Pérez</span>
+            </div>
+            <svg class="csc-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+
+          <a href="mailto:dev.oscar.p@gmail.com" class="csc-card">
+            <div class="csc-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="csc-info">
+              <span class="csc-platform">Email</span>
+              <span class="csc-handle">dev.oscar.p@gmail.com</span>
+            </div>
+            <svg class="csc-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="contact-right" data-reveal="up" data-delay="100">
+        <form class="contact-form" id="contactForm">
+          <div class="cf-row">
+            <div class="cf-field">
+              <label class="cf-label" for="cf-name">Nombre</label>
+              <input id="cf-name" name="name" type="text" class="cf-input"
+                     placeholder="Tu nombre completo" required data-fs-field />
+            </div>
+            <div class="cf-field">
+              <label class="cf-label" for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" class="cf-input"
+                     placeholder="tu@email.com" required data-fs-field />
+              <span class="cf-field-error" data-fs-error="email"></span>
+            </div>
+          </div>
+          <div class="cf-field">
+            <label class="cf-label" for="cf-subject">Asunto</label>
+            <input id="cf-subject" name="subject" type="text" class="cf-input"
+                   placeholder="¿En qué puedo ayudarte?" data-fs-field />
+          </div>
+          <div class="cf-field">
+            <label class="cf-label" for="cf-msg">Mensaje</label>
+            <textarea id="cf-msg" name="message" class="cf-textarea" rows="5"
+                      placeholder="Cuéntame sobre tu proyecto o idea..." required data-fs-field></textarea>
+            <span class="cf-field-error" data-fs-error="message"></span>
+          </div>
+          <span class="cf-field-error" data-fs-error></span>
+          <button type="submit" class="cf-submit magnetic" data-fs-submit-btn>
+            <span class="cf-submit-text">Enviar mensaje</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="cf-success" data-fs-success>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            ¡Mensaje enviado! Te responderé pronto.
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOVER FOOTER -->
+  <footer class="hover-footer">
+    <div class="hf-bg-glow"></div>
+
+    <div class="hf-inner">
+      <div class="hf-grid">
+
+        <!-- Brand -->
+        <div class="hf-brand">
+          <span class="hf-logo">Oscar <span class="accent">Pérez</span></span>
+          <p class="hf-tagline">Frontend developer apasionado por crear interfaces que no solo funcionan — sino que se sienten bien.</p>
+        </div>
+
+        <!-- Nav links -->
+        <div class="hf-col">
+          <h4 class="hf-col-title">Navegación</h4>
+          <ul>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#skills">Stack</a></li>
+            <li><a href="#experience">Experiencia</a></li>
+            <li><a href="#work">Proyectos</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Stack -->
+        <div class="hf-col">
+          <h4 class="hf-col-title">Stack</h4>
+          <ul>
+            <li><span>HTML · CSS · JS</span></li>
+            <li><span>PHP · MySQL</span></li>
+            <li><span>Git · GitHub</span></li>
+            <li><span>Figma · VS Code</span></li>
+          </ul>
+        </div>
+
+        <!-- Contact info -->
+        <div class="hf-col">
+          <h4 class="hf-col-title">Contacto</h4>
+          <ul class="hf-contact">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <a href="mailto:dev.oscar.p@gmail.com">dev.oscar.p@gmail.com</a>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>España</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="hf-divider" />
+
+      <div class="hf-bottom">
+        <div class="hf-socials">
+          <a href="https://github.com/oscarp-dev" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/oscar-perez-colina/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a href="mailto:dev.oscar.p@gmail.com" aria-label="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </a>
+        </div>
+        <p>© 2025 Oscar Pérez. Todos los derechos reservados.</p>
+        <a href="#home" class="hf-back">
+          Volver arriba
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Big text hover effect (SVG) -->
+    <div class="hf-text-wrap">
+      <svg id="footerTextSvg" viewBox="0 0 1000 110"
+           xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+           preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <!-- Colored gradient revealed on hover -->
+          <linearGradient id="hf-colorGrad" gradientUnits="userSpaceOnUse"
+                          x1="0" y1="55" x2="1000" y2="55">
+            <stop offset="0%"   stop-color="#FF5C26"/>
+            <stop offset="30%"  stop-color="#FFD1A0"/>
+            <stop offset="55%"  stop-color="#FFFFFF"/>
+            <stop offset="75%"  stop-color="#FFD1A0"/>
+            <stop offset="100%" stop-color="#FF5C26"/>
+          </linearGradient>
+          <!-- Radial mask following cursor -->
+          <radialGradient id="hf-revealMask" gradientUnits="userSpaceOnUse"
+                          cx="500" cy="55" r="220">
+            <stop offset="0%"   stop-color="white"/>
+            <stop offset="100%" stop-color="black"/>
+          </radialGradient>
+          <mask id="hf-textMask">
+            <rect x="0" y="0" width="1000" height="110" fill="url(#hf-revealMask)"/>
+          </mask>
+        </defs>
+
+        <!-- Layer 1: faint outline, shows on hover -->
+        <text id="hf-outline"
+              x="500" y="58" text-anchor="middle" dominant-baseline="middle"
+              font-family="Space Grotesk, sans-serif" font-weight="700" font-size="96"
+              fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.6"
+              style="opacity:0;transition:opacity 0.35s;">
+          OSCAR PÉREZ
+        </text>
+
+        <!-- Layer 2: orange draw-in animation on load -->
+        <text id="hf-draw"
+              x="500" y="58" text-anchor="middle" dominant-baseline="middle"
+              font-family="Space Grotesk, sans-serif" font-weight="700" font-size="96"
+              fill="none" stroke="#FF5C26" stroke-width="0.6"
+              stroke-dasharray="5000" stroke-dashoffset="5000">
+          OSCAR PÉREZ
+        </text>
+
+        <!-- Layer 3: colorful gradient, revealed by mouse mask -->
+        <text x="500" y="58" text-anchor="middle" dominant-baseline="middle"
+              font-family="Space Grotesk, sans-serif" font-weight="700" font-size="96"
+              fill="none" stroke="url(#hf-colorGrad)" stroke-width="0.6"
+              mask="url(#hf-textMask)">
+          OSCAR PÉREZ
+        </text>
+      </svg>
+    </div>
+
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contactForm', formId: 'mjgjqnyv' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</body>
+</html>
