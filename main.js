@@ -1,4 +1,4 @@
-// ─── LOADER ────────────────────────────────────────────
+// ─── LOADER / PANTALLA DE CARGA ────────────────────────
 (function () {
   const loader   = document.getElementById('loader');
   const countEl  = document.getElementById('loaderCount');
@@ -20,7 +20,7 @@
     countEl.textContent = String(count).padStart(2, '0');
     fillEl.style.width  = count + '%';
 
-    // Reveal name characters progressively
+    // Revelar los caracteres del nombre progresivamente
     chars.forEach((c, i) => {
       if (count >= Math.round(((i + 1) / total) * 100)) c.classList.add('show');
     });
@@ -44,7 +44,7 @@
 })();
 
 
-// ─── SCROLL PROGRESS BAR ───────────────────────────────
+// ─── BARRA DE PROGRESO DE SCROLL ───────────────────────
 const progressBar = document.getElementById('scrollProgress');
 function updateProgress() {
   const max = document.documentElement.scrollHeight - window.innerHeight;
@@ -53,13 +53,13 @@ function updateProgress() {
   }
 }
 
-// ─── NAV SCROLL STATE ──────────────────────────────────
+// ─── ESTADO DEL NAV AL HACER SCROLL ───────────────────
 const nav = document.querySelector('.nav');
 function updateNav() {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 }
 
-// ─── HERO PARALLAX (activated after entry animations) ──
+// ─── PARALLAX DEL HERO (activo tras las animaciones) ───
 const heroContent = document.querySelector('.hero-content');
 const heroVisual  = document.querySelector('.hero-visual');
 let parallaxReady = false;
@@ -68,19 +68,19 @@ setTimeout(() => { parallaxReady = true; }, 1800);
 function heroParallax() {
   if (!parallaxReady) return;
   const y = window.scrollY;
-  // Text moves faster than photo → natural depth
+  // El texto se mueve más rápido que la foto → profundidad natural
   if (heroContent) heroContent.style.transform = `translateY(${y * 0.13}px)`;
   if (heroVisual)  heroVisual.style.transform  = `translateY(${y * 0.06}px)`;
 }
 
-// ─── SINGLE SCROLL LISTENER ────────────────────────────
+// ─── UN SOLO LISTENER DE SCROLL ────────────────────────
 window.addEventListener('scroll', () => {
   updateProgress();
   updateNav();
   heroParallax();
 }, { passive: true });
 
-// ─── SCROLL REVEAL (IntersectionObserver) ──────────────
+// ─── APARICIÓN AL HACER SCROLL (IntersectionObserver) ──
 const revealEls = document.querySelectorAll('[data-reveal]');
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -96,7 +96,7 @@ const revealObs = new IntersectionObserver((entries) => {
 
 revealEls.forEach(el => revealObs.observe(el));
 
-// ─── COUNT-UP ANIMATION ────────────────────────────────
+// ─── ANIMACIÓN DE CONTADOR PROGRESIVO ──────────────────
 function countUp(el) {
   const target = parseInt(el.dataset.count);
   if (isNaN(target)) return;
@@ -111,7 +111,7 @@ function countUp(el) {
   })(start);
 }
 
-// ─── MAGNETIC BUTTON ───────────────────────────────────
+// ─── BOTÓN MAGNÉTICO ───────────────────────────────────
 document.querySelectorAll('.magnetic').forEach(el => {
   el.addEventListener('mousemove', e => {
     const r = el.getBoundingClientRect();
@@ -122,7 +122,7 @@ document.querySelectorAll('.magnetic').forEach(el => {
   el.addEventListener('mouseleave', () => { el.style.transform = ''; });
 });
 
-// ─── PROJECTS INTERACTIVE SELECTOR ─────────────────────
+// ─── SELECTOR INTERACTIVO DE PROYECTOS ─────────────────
 (function () {
   const options = document.querySelectorAll('.proj-option');
   if (!options.length) return;
@@ -143,7 +143,7 @@ document.querySelectorAll('.magnetic').forEach(el => {
   io.observe(selector);
 })();
 
-// ─── FOOTER TEXT HOVER EFFECT ──────────────────────────
+// ─── EFECTO HOVER EN EL TEXTO DEL FOOTER ──────────────
 (function () {
   const svg       = document.getElementById('footerTextSvg');
   const revealGrad = document.getElementById('hf-revealMask');
@@ -155,7 +155,7 @@ document.querySelectorAll('.magnetic').forEach(el => {
   let targetCx = VW / 2, targetCy = VH / 2;
   let currentCx = VW / 2, currentCy = VH / 2;
 
-  // Draw-in animation when footer enters viewport
+  // Animación de trazado al entrar el footer en el viewport
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -166,7 +166,7 @@ document.querySelectorAll('.magnetic').forEach(el => {
     io.observe(svg);
   }
 
-  // Mouse interaction on the SVG area
+  // Interacción del ratón sobre el área del SVG
   svg.addEventListener('mouseenter', () => {
     if (outline) outline.style.opacity = '0.7';
   });
@@ -179,7 +179,7 @@ document.querySelectorAll('.magnetic').forEach(el => {
     targetCy = ((e.clientY - r.top)   / r.height) * VH;
   });
 
-  // Smooth lerp loop to move the reveal radial gradient
+  // Bucle lerp suave para mover el gradiente radial de revelado
   (function loop() {
     currentCx += (targetCx - currentCx) * 0.1;
     currentCy += (targetCy - currentCy) * 0.1;
@@ -189,7 +189,7 @@ document.querySelectorAll('.magnetic').forEach(el => {
   })();
 })();
 
-// ─── CURSOR GLOW (desktop only) ────────────────────────
+// ─── BRILLO DEL CURSOR (solo escritorio) ───────────────
 if (window.matchMedia('(pointer: fine)').matches) {
   const glow = Object.assign(document.createElement('div'), {
     style: `position:fixed;pointer-events:none;z-index:9998;
@@ -209,12 +209,12 @@ if (window.matchMedia('(pointer: fine)').matches) {
   })();
 }
 
-// ─── HERO TEXT CURSOR PROXIMITY ────────────────────────
+// ─── PROXIMIDAD DEL CURSOR AL TEXTO DEL HERO ───────────
 (function () {
   const heroTitle = document.querySelector('.hero-title');
   if (!heroTitle || !window.matchMedia('(pointer: fine)').matches) return;
 
-  // Recursively wrap every character in a .tcp-l span, preserving element tree
+  // Envolver recursivamente cada carácter en un span .tcp-l, preservando el árbol del DOM
   function wrapChars(el) {
     Array.from(el.childNodes).slice().forEach(node => {
       if (node.nodeType === 3) { // text node
@@ -247,12 +247,12 @@ if (window.matchMedia('(pointer: fine)').matches) {
   let mx = -9999, my = -9999;
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 
-  // Gaussian falloff: full effect at distance 0, fades to 0 at ~RADIUS
+  // Caída gaussiana: efecto completo a distancia 0, se atenúa hasta 0 en ~RADIO
   function proximity(d) {
     return Math.exp(-Math.pow(d / (RADIUS * 0.5), 2) / 2);
   }
 
-  // Allow scaled letters to overflow .line clip after entry animations finish
+  // Permitir que las letras escaladas desborden el clip de .line tras las animaciones de entrada
   setTimeout(() => {
     document.querySelectorAll('.hero-title .line').forEach(l => {
       l.style.overflow = 'visible';

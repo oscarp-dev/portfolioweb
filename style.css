@@ -1,4 +1,4 @@
-/* ─── TOKENS ─────────────────────────────────────────── */
+/* ─── VARIABLES DE DISEÑO ──────────────────────────── */
 :root {
   --white:   #FFFFFF;
   --peach:   #FFD1A0;
@@ -14,7 +14,7 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ─── RESET ──────────────────────────────────────────── */
+/* ─── RESET Y BASE ─────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -27,7 +27,7 @@ body {
 a { text-decoration: none; color: inherit; }
 img { display: block; width: 100%; }
 
-/* ─── NOISE ──────────────────────────────────────────── */
+/* ─── TEXTURA DE RUIDO ──────────────────────────────── */
 .noise {
   position: fixed;
   inset: -50%;
@@ -47,7 +47,7 @@ img { display: block; width: 100%; }
   100% { transform: translate(2%, -2%); }
 }
 
-/* ─── NAV ────────────────────────────────────────────── */
+/* ─── NAVEGACIÓN ────────────────────────────────────── */
 .nav {
   position: fixed;
   top: 0;
@@ -104,7 +104,7 @@ img { display: block; width: 100%; }
   border-color: var(--orange);
 }
 
-/* ─── HERO ───────────────────────────────────────────── */
+/* ─── HERO / PORTADA ────────────────────────────────── */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -121,7 +121,7 @@ img { display: block; width: 100%; }
   max-width: 1280px;
 }
 
-/* Radial glow */
+/* Brillo radial */
 .hero::before {
   content: '';
   position: absolute;
@@ -143,7 +143,7 @@ img { display: block; width: 100%; }
   pointer-events: none;
 }
 
-/* Floating availability label */
+/* Etiqueta flotante de disponibilidad */
 .hero-label {
   display: inline-flex;
   align-items: center;
@@ -170,7 +170,7 @@ img { display: block; width: 100%; }
   50%       { box-shadow: 0 0 0 6px rgba(74,222,128,0.08); }
 }
 
-/* Content grid */
+/* Grid de contenido */
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 280px;
@@ -181,7 +181,7 @@ img { display: block; width: 100%; }
   margin: 0 auto;
 }
 
-/* Text */
+/* Texto */
 .hero-eyebrow {
   font-size: 0.78rem;
   font-weight: 500;
@@ -212,7 +212,7 @@ img { display: block; width: 100%; }
 .hero-title .line:nth-child(2) { animation: fade-up 0.7s 0.52s var(--ease-out) forwards; }
 .hero-title .accent { color: var(--orange); }
 
-/* TextCursorProximity letters */
+/* Letras del efecto TextCursorProximity */
 .tcp-l {
   display: inline-block;
   will-change: transform, color;
@@ -232,7 +232,7 @@ img { display: block; width: 100%; }
   font-weight: 600;
 }
 
-/* Actions */
+/* Acciones */
 .hero-actions {
   display: flex;
   align-items: center;
@@ -293,7 +293,7 @@ img { display: block; width: 100%; }
   background: rgba(255,92,38,0.06);
 }
 
-/* ─── PHOTO CARD ─────────────────────────────────────── */
+/* ─── TARJETA DE FOTO ───────────────────────────────── */
 .hero-visual {
   position: relative;
   opacity: 0;
@@ -370,7 +370,7 @@ img { display: block; width: 100%; }
   animation: pulse 2s infinite;
 }
 
-/* Floating skill chips */
+/* Chips flotantes de habilidades */
 .skill-chip {
   position: absolute;
   background: var(--carbon);
@@ -407,7 +407,7 @@ img { display: block; width: 100%; }
   50%       { transform: translateY(-8px); }
 }
 
-/* ─── SCROLL HINT ────────────────────────────────────── */
+/* ─── INDICADOR DE SCROLL ───────────────────────────── */
 .scroll-hint {
   position: absolute;
   bottom: 80px;
@@ -434,7 +434,7 @@ img { display: block; width: 100%; }
   to { transform: scaleX(1); }
 }
 
-/* ─── MARQUEE ────────────────────────────────────────── */
+/* ─── MARQUEE HERO ──────────────────────────────────── */
 .marquee-wrap {
   position: absolute;
   bottom: 0;
@@ -463,7 +463,7 @@ img { display: block; width: 100%; }
   to   { transform: translateX(-33.33%); }
 }
 
-/* ─── ANIMATIONS ─────────────────────────────────────── */
+/* ─── ANIMACIONES ───────────────────────────────────── */
 @keyframes fade-up {
   to { opacity: 1; transform: translateY(0); }
 }
@@ -471,7 +471,7 @@ img { display: block; width: 100%; }
   to { opacity: 1; }
 }
 
-/* ─── RESPONSIVE ─────────────────────────────────────── */
+/* ─── RESPONSIVE HERO ───────────────────────────────── */
 @media (max-width: 900px) {
   .nav { padding: 20px 24px; }
   .nav-links { display: none; }
@@ -498,7 +498,7 @@ img { display: block; width: 100%; }
   .photo-frame { width: 210px; height: 260px; }
 }
 
-/* ─── SCROLL PROGRESS BAR ────────────────────────────── */
+/* ─── BARRA DE PROGRESO ─────────────────────────────── */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -511,7 +511,7 @@ img { display: block; width: 100%; }
   pointer-events: none;
 }
 
-/* ─── SCROLL REVEAL ──────────────────────────────────── */
+/* ─── REVELADO AL HACER SCROLL ──────────────────────── */
 [data-reveal] {
   opacity: 0;
   transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
@@ -523,7 +523,7 @@ img { display: block; width: 100%; }
   transform: none;
 }
 
-/* ─── SKILLS MARQUEE ─────────────────────────────────── */
+/* ─── MARQUEE DE HABILIDADES ────────────────────────── */
 .skills {
   padding: 110px 0 90px;
 }
@@ -565,7 +565,7 @@ img { display: block; width: 100%; }
   to   { transform: translateX(0); }
 }
 
-/* Individual pill */
+/* Pastilla individual */
 .sk-item {
   display: flex;
   align-items: center;
@@ -604,7 +604,7 @@ img { display: block; width: 100%; }
   .skills-header { padding: 0 24px; margin-bottom: 40px; }
 }
 
-/* ─── CONTACT ────────────────────────────────────────── */
+/* ─── CONTACTO ──────────────────────────────────────── */
 .contact {
   position: relative;
   overflow: hidden;
@@ -629,7 +629,7 @@ img { display: block; width: 100%; }
   gap: 72px;
   align-items: center;
 }
-/* New contact layout */
+/* Nuevo layout del contacto */
 .contact-left {
   display: flex;
   flex-direction: column;
@@ -648,7 +648,7 @@ img { display: block; width: 100%; }
   color: var(--muted);
 }
 
-/* Social contact cards */
+/* Tarjetas de contacto social */
 .csc-list {
   display: flex;
   flex-direction: column;
@@ -715,7 +715,7 @@ img { display: block; width: 100%; }
   color: var(--orange);
 }
 
-/* Contact form */
+/* Formulario de contacto */
 .contact-right { display: flex; flex-direction: column; }
 .contact-form {
   background: rgba(26,28,30,0.5);
@@ -828,7 +828,7 @@ img { display: block; width: 100%; }
   .contact-form { padding: 24px; }
 }
 
-/* ─── EXPERIENCE ─────────────────────────────────────── */
+/* ─── EXPERIENCIA ───────────────────────────────────── */
 .exp {
   padding: 120px 48px 100px;
 }
@@ -851,7 +851,7 @@ img { display: block; width: 100%; }
   gap: 0 24px;
 }
 
-/* Timeline track */
+/* Línea de tiempo */
 .exp-tl {
   display: flex;
   flex-direction: column;
@@ -884,7 +884,7 @@ img { display: block; width: 100%; }
   margin-top: 8px;
 }
 
-/* Card */
+/* Tarjeta de experiencia */
 .exp-card {
   background: var(--carbon);
   border: 1px solid var(--border);
@@ -1018,7 +1018,7 @@ img { display: block; width: 100%; }
   .exp-role { font-size: 1rem; }
 }
 
-/* ─── WORK / PROJECTS ────────────────────────────────── */
+/* ─── TRABAJOS / PROYECTOS ──────────────────────────── */
 .work {
   padding: 120px 48px 100px;
   max-width: 1200px;
@@ -1050,7 +1050,7 @@ img { display: block; width: 100%; }
   color: var(--muted);
 }
 
-/* ─── INTERACTIVE SELECTOR ───────────────────────────── */
+/* ─── SELECTOR INTERACTIVO ──────────────────────────── */
 .projects-selector {
   display: flex;
   width: 100%;
@@ -1099,7 +1099,7 @@ img { display: block; width: 100%; }
   border: 1px solid rgba(255,255,255,0.04);
 }
 
-/* Top orange bar on active */
+/* Barra naranja superior al activar */
 .proj-option.active::before {
   content: '';
   position: absolute;
@@ -1111,7 +1111,7 @@ img { display: block; width: 100%; }
   z-index: 3;
 }
 
-/* Image gradient overlay */
+/* Capa de gradiente sobre la imagen */
 .proj-shadow {
   position: absolute;
   inset: 0;
@@ -1128,7 +1128,7 @@ img { display: block; width: 100%; }
   background: rgba(14,14,14,0.6);
 }
 
-/* Label row at bottom */
+/* Fila de etiqueta en la parte inferior */
 .proj-label {
   position: absolute;
   bottom: 0;
@@ -1229,7 +1229,7 @@ img { display: block; width: 100%; }
   transform: translateY(0);
 }
 
-/* Project link buttons */
+/* Botones de enlace del proyecto */
 .proj-links {
   display: flex;
   flex-direction: column;
@@ -1273,7 +1273,7 @@ img { display: block; width: 100%; }
   border-color: #ff7a4d;
 }
 
-/* ─── RESPONSIVE WORK ────────────────────────────────── */
+/* ─── PROYECTOS RESPONSIVE ──────────────────────────── */
 @media (max-width: 900px) {
   .work { padding: 80px 24px 80px; }
 
@@ -1301,7 +1301,7 @@ img { display: block; width: 100%; }
   }
 }
 
-/* ─── LOADER ─────────────────────────────────────────── */
+/* ─── LOADER / PANTALLA DE CARGA ───────────────────── */
 .loader {
   position: fixed;
   inset: 0;
@@ -1375,7 +1375,7 @@ img { display: block; width: 100%; }
   margin-top: -6px;
 }
 
-/* ─── HOVER FOOTER ───────────────────────────────────── */
+/* ─── PIE DE PÁGINA ─────────────────────────────────── */
 .hover-footer {
   position: relative;
   overflow: hidden;
@@ -1395,7 +1395,7 @@ img { display: block; width: 100%; }
 
 .hf-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 1280px;
   margin: 0 auto;
   padding: 56px 48px 32px;
@@ -1408,7 +1408,7 @@ img { display: block; width: 100%; }
   padding-bottom: 48px;
 }
 
-/* Brand */
+/* Marca */
 .hf-brand {
   display: flex;
   flex-direction: column;
@@ -1427,7 +1427,7 @@ img { display: block; width: 100%; }
   max-width: 230px;
 }
 
-/* Columns */
+/* Columnas */
 .hf-col {
   display: flex;
   flex-direction: column;
@@ -1454,7 +1454,7 @@ img { display: block; width: 100%; }
 }
 .hf-col ul li a:hover { color: var(--orange); }
 
-/* Contact column */
+/* Columna de contacto */
 .hf-contact li {
   display: flex;
   align-items: center;
@@ -1462,14 +1462,14 @@ img { display: block; width: 100%; }
 }
 .hf-contact svg { flex-shrink: 0; color: var(--orange); }
 
-/* Divider */
+/* Separador */
 .hf-divider {
   border: none;
   border-top: 1px solid var(--border);
   margin: 0;
 }
 
-/* Bottom row */
+/* Fila inferior */
 .hf-bottom {
   display: flex;
   align-items: center;
@@ -1504,7 +1504,7 @@ img { display: block; width: 100%; }
 }
 .hf-back:hover { color: var(--orange); }
 
-/* ── SVG Text Hover Effect ──────────────────────────── */
+/* ── Efecto hover en el texto SVG ──────────────────────── */
 .hf-text-wrap {
   position: relative;
   z-index: 1;
@@ -1515,7 +1515,7 @@ img { display: block; width: 100%; }
   overflow: hidden;
 }
 
-/* Draw-in animation triggered by .hf-animate class */
+/* Animación de trazado activada por la clase .hf-animate */
 #hf-draw {
   transition: stroke-dashoffset 4s ease-in-out;
 }
@@ -1523,7 +1523,7 @@ img { display: block; width: 100%; }
   stroke-dashoffset: 0;
 }
 
-/* Hover footer responsive */
+/* Footer hover responsive */
 @media (max-width: 1024px) {
   .hf-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
 }
