@@ -4,7 +4,7 @@ Repositorio del código fuente de mi portfolio personal, desarrollado desde cero
 
 ## 🌐 Ver en vivo
 
-👉 [oscarperez.vercel.app](https://oscarperez.vercel.app/)
+👉 [oscarperez.dev](https://oscarperez.dev/)
 
 ## 🛠️ Tecnologías
 

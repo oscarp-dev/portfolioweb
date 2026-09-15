@@ -1,3 +1,6 @@
+// ─── PREFERENCIA DE MOVIMIENTO REDUCIDO ────────────────
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // ─── LOADER / PANTALLA DE CARGA ────────────────────────
 (function () {
   const loader   = document.getElementById('loader');
@@ -59,6 +62,33 @@ function updateNav() {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 }
 
+// ─── MENÚ MOBILE (HAMBURGUESA) ─────────────────────────
+(function () {
+  const toggle = document.getElementById('navToggle');
+  const menu   = document.getElementById('navLinks');
+  if (!toggle || !menu) return;
+
+  function closeMenu() {
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menú de navegación');
+    menu.classList.remove('open');
+    document.body.classList.remove('nav-open');
+  }
+  function openMenu() {
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Cerrar menú de navegación');
+    menu.classList.add('open');
+    document.body.classList.add('nav-open');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    isOpen ? closeMenu() : openMenu();
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+
 // ─── PARALLAX DEL HERO (activo tras las animaciones) ───
 const heroContent = document.querySelector('.hero-content');
 const heroVisual  = document.querySelector('.hero-visual');
@@ -66,7 +96,7 @@ let parallaxReady = false;
 setTimeout(() => { parallaxReady = true; }, 1800);
 
 function heroParallax() {
-  if (!parallaxReady) return;
+  if (!parallaxReady || prefersReducedMotion) return;
   const y = window.scrollY;
   // El texto se mueve más rápido que la foto → profundidad natural
   if (heroContent) heroContent.style.transform = `translateY(${y * 0.13}px)`;
@@ -113,6 +143,7 @@ function countUp(el) {
 
 // ─── BOTÓN MAGNÉTICO ───────────────────────────────────
 document.querySelectorAll('.magnetic').forEach(el => {
+  if (prefersReducedMotion) return;
   el.addEventListener('mousemove', e => {
     const r = el.getBoundingClientRect();
     const x = (e.clientX - r.left - r.width  / 2) * 0.18;
@@ -190,7 +221,7 @@ document.querySelectorAll('.magnetic').forEach(el => {
 })();
 
 // ─── BRILLO DEL CURSOR (solo escritorio) ───────────────
-if (window.matchMedia('(pointer: fine)').matches) {
+if (window.matchMedia('(pointer: fine)').matches && !prefersReducedMotion) {
   const glow = Object.assign(document.createElement('div'), {
     style: `position:fixed;pointer-events:none;z-index:9998;
             width:340px;height:340px;border-radius:50%;
@@ -212,22 +243,27 @@ if (window.matchMedia('(pointer: fine)').matches) {
 // ─── PROXIMIDAD DEL CURSOR AL TEXTO DEL HERO ───────────
 (function () {
   const heroTitle = document.querySelector('.hero-title');
-  if (!heroTitle || !window.matchMedia('(pointer: fine)').matches) return;
+  if (!heroTitle || !window.matchMedia('(pointer: fine)').matches || prefersReducedMotion) return;
 
   // Envolver recursivamente cada carácter en un span .tcp-l, preservando el árbol del DOM
   function wrapChars(el) {
     Array.from(el.childNodes).slice().forEach(node => {
       if (node.nodeType === 3) { // text node
         const frag = document.createDocumentFragment();
-        [...node.textContent].forEach(ch => {
-          if (ch === ' ') {
-            frag.appendChild(document.createTextNode(' '));
-          } else {
+        node.textContent.split(' ').forEach((word, i) => {
+          if (i > 0) frag.appendChild(document.createTextNode(' '));
+          if (!word) return;
+          // Agrupar las letras de cada palabra para que el salto de línea
+          // solo pueda ocurrir en los espacios, nunca dentro de una palabra.
+          const wordWrap = document.createElement('span');
+          wordWrap.className = 'tcp-w';
+          [...word].forEach(ch => {
             const s = document.createElement('span');
             s.className = 'tcp-l';
             s.textContent = ch;
-            frag.appendChild(s);
-          }
+            wordWrap.appendChild(s);
+          });
+          frag.appendChild(wordWrap);
         });
         el.replaceChild(frag, node);
       } else if (node.nodeType === 1) {

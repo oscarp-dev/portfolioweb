@@ -3,13 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oscar Pérez — Frontend Developer</title>
+
+  <title>Oscar Pérez — Desarrollador Frontend en España</title>
+  <meta name="description" content="Oscar Pérez, desarrollador frontend freelance en España. Construyo webs y aplicaciones rápidas, accesibles y cuidadas al detalle con HTML, CSS, JavaScript y PHP." />
+  <meta name="keywords" content="Oscar Pérez, desarrollador frontend, frontend developer, desarrollador web freelance, HTML, CSS, JavaScript, PHP, Alicante, España" />
+  <meta name="author" content="Oscar Pérez" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://oscarperez.dev/" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://oscarperez.dev/" />
+  <meta property="og:title" content="Oscar Pérez — Desarrollador Frontend en España" />
+  <meta property="og:description" content="Construyo webs y aplicaciones rápidas, accesibles y cuidadas al detalle con HTML, CSS, JavaScript y PHP." />
+  <meta property="og:image" content="https://oscarperez.dev/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="Oscar Pérez" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Oscar Pérez — Desarrollador Frontend en España" />
+  <meta name="twitter:description" content="Construyo webs y aplicaciones rápidas, accesibles y cuidadas al detalle con HTML, CSS, JavaScript y PHP." />
+  <meta name="twitter:image" content="https://oscarperez.dev/assets/og-image.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#0E0E0E" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Datos estructurados (Person + WebSite) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://oscarperez.dev/#person",
+        "name": "Oscar Pérez",
+        "url": "https://oscarperez.dev/",
+        "image": "https://oscarperez.dev/assets/avatar.webp",
+        "jobTitle": "Frontend Developer",
+        "email": "mailto:dev.oscar.p@gmail.com",
+        "sameAs": [
+          "https://github.com/oscarp-dev",
+          "https://www.linkedin.com/in/oscar-perez-colina/"
+        ],
+        "knowsAbout": ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "Git"],
+        "worksFor": { "@type": "Organization", "name": "Freelance" },
+        "address": { "@type": "PostalAddress", "addressCountry": "ES" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://oscarperez.dev/#website",
+        "url": "https://oscarperez.dev/",
+        "name": "Oscar Pérez — Portfolio",
+        "publisher": { "@id": "https://oscarperez.dev/#person" },
+        "inLanguage": "es"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
 
   <!-- LOADER -->
   <div id="loader" class="loader" aria-hidden="true">
@@ -33,17 +100,22 @@
 
   <!-- NAVEGACIÓN -->
   <nav class="nav">
-    <a href="#" class="nav-logo">
+    <a href="#home" class="nav-logo">
       Oscar <span class="logo-accent">Pérez</span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#skills">Stack</a></li>
       <li><a href="#experience">Experiencia</a></li>
       <li><a href="#work">Proyectos</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Hablemos</a>
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <main id="main-content">
 
   <!-- HERO / PORTADA -->
   <section class="hero" id="home">
@@ -104,7 +176,7 @@
       <div class="hero-visual">
         <div class="photo-card">
           <div class="photo-frame">
-            <img src="assets/avatar.jpg" alt="Oscar Pérez" class="photo-img" onerror="this.classList.add('errored')" />
+            <img src="assets/avatar.webp" alt="Oscar Pérez, desarrollador frontend" class="photo-img" width="240" height="295" onerror="this.classList.add('errored')" />
             <div class="photo-placeholder">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
@@ -272,7 +344,7 @@
 
       <!-- PROJECT 1: We Are Alicante -->
       <div class="proj-option active" data-index="0"
-           style="--bg: url('assets/projects/wearealicante.png')">
+           style="--bg: url('assets/projects/wearealicante.webp')">
         <div class="proj-shadow"></div>
         <div class="proj-label">
           <div class="proj-icon">
@@ -302,7 +374,7 @@
 
       <!-- PROJECT 2: Qaphi -->
       <div class="proj-option" data-index="1"
-           style="--bg: url('assets/projects/qaphi.png')">
+           style="--bg: url('assets/projects/qaphi.webp')">
         <div class="proj-shadow"></div>
         <div class="proj-label">
           <div class="proj-icon">
@@ -330,7 +402,7 @@
 
       <!-- PROJECT 3: Web de Larana -->
       <div class="proj-option" data-index="2"
-           style="--bg: url('assets/projects/larana.png')">
+           style="--bg: url('assets/projects/larana.webp')">
         <div class="proj-shadow"></div>
         <div class="proj-label">
           <div class="proj-icon">
@@ -357,7 +429,7 @@
 
       <!-- PROJECT 4: Harry's Coffee & Brunch -->
       <div class="proj-option" data-index="3"
-           style="--bg: url('assets/projects/harrys.png')">
+           style="--bg: url('assets/projects/harrys.webp')">
         <div class="proj-shadow"></div>
         <div class="proj-label">
           <div class="proj-icon">
@@ -383,7 +455,7 @@
 
       <!-- PROJECT 5: Web Douglas Serrano -->
       <div class="proj-option" data-index="4"
-           style="--bg: url('assets/projects/douglas.png')">
+           style="--bg: url('assets/projects/douglas.webp')">
         <div class="proj-shadow"></div>
         <div class="proj-label">
           <div class="proj-icon">
@@ -409,7 +481,7 @@
 
       <!-- PROJECT 6: Carrito de compras -->
       <div class="proj-option" data-index="5"
-           style="--bg: url('assets/projects/carrito.png')">
+           style="--bg: url('assets/projects/carrito.webp')">
         <div class="proj-shadow"></div>
         <div class="proj-label">
           <div class="proj-icon">
@@ -552,6 +624,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- PIE DE PÁGINA -->
   <footer class="hover-footer">
     <div class="hf-bg-glow"></div>
@@ -567,7 +641,7 @@
 
         <!-- Navegación -->
         <div class="hf-col">
-          <h4 class="hf-col-title">Navegación</h4>
+          <h3 class="hf-col-title">Navegación</h3>
           <ul>
             <li><a href="#home">Inicio</a></li>
             <li><a href="#skills">Stack</a></li>
@@ -579,7 +653,7 @@
 
         <!-- Stack -->
         <div class="hf-col">
-          <h4 class="hf-col-title">Stack</h4>
+          <h3 class="hf-col-title">Stack</h3>
           <ul>
             <li><span>HTML · CSS · JS</span></li>
             <li><span>PHP · MySQL</span></li>
@@ -590,7 +664,7 @@
 
         <!-- Información de contacto -->
         <div class="hf-col">
-          <h4 class="hf-col-title">Contacto</h4>
+          <h3 class="hf-col-title">Contacto</h3>
           <ul class="hf-contact">
             <li>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
