@@ -38,7 +38,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="style.css" />
 
   <!-- Datos estructurados (Person + WebSite) -->
@@ -212,49 +214,29 @@
       </p>
     </div>
 
-    <!-- Fila única de marquee → (4 copias para bucle sin cortes) -->
+    <!-- Fila única de marquee → (2 copias son suficientes: la animación solo se mueve -50%) -->
     <div class="skills-track-wrap" data-reveal="up" data-delay="180">
       <div class="skills-track skills-track--fwd">
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" class="sk-icon"><span>HTML5</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" class="sk-icon"><span>CSS3</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" class="sk-icon"><span>JavaScript</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="" class="sk-icon"><span>PHP</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" class="sk-icon"><span>MySQL</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" class="sk-icon"><span>Git</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" class="sk-icon sk-icon--invert"><span>GitHub</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="" class="sk-icon"><span>Figma</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" class="sk-icon"><span>VS Code</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" class="sk-icon"><span>SQL</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" class="sk-icon"><span>HTML5</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" class="sk-icon"><span>CSS3</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" class="sk-icon"><span>JavaScript</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="" class="sk-icon"><span>PHP</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" class="sk-icon"><span>MySQL</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" class="sk-icon"><span>Git</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" class="sk-icon sk-icon--invert"><span>GitHub</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="" class="sk-icon"><span>Figma</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" class="sk-icon"><span>VS Code</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" class="sk-icon"><span>SQL</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" class="sk-icon"><span>HTML5</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" class="sk-icon"><span>CSS3</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" class="sk-icon"><span>JavaScript</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="" class="sk-icon"><span>PHP</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" class="sk-icon"><span>MySQL</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" class="sk-icon"><span>Git</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" class="sk-icon sk-icon--invert"><span>GitHub</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="" class="sk-icon"><span>Figma</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" class="sk-icon"><span>VS Code</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" class="sk-icon"><span>SQL</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" class="sk-icon"><span>HTML5</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" class="sk-icon"><span>CSS3</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" class="sk-icon"><span>JavaScript</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="" class="sk-icon"><span>PHP</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" class="sk-icon"><span>MySQL</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" class="sk-icon"><span>Git</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" class="sk-icon sk-icon--invert"><span>GitHub</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="" class="sk-icon"><span>Figma</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" class="sk-icon"><span>VS Code</span></div>
-        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" class="sk-icon"><span>SQL</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>HTML5</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>CSS3</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>JavaScript</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>PHP</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>MySQL</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>Git</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" class="sk-icon sk-icon--invert" loading="lazy" decoding="async"><span>GitHub</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>Figma</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>VS Code</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>SQL</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>HTML5</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>CSS3</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>JavaScript</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>PHP</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>MySQL</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>Git</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" class="sk-icon sk-icon--invert" loading="lazy" decoding="async"><span>GitHub</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>Figma</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>VS Code</span></div>
+        <div class="sk-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" class="sk-icon" loading="lazy" decoding="async"><span>SQL</span></div>
       </div>
     </div>
 

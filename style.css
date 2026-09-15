@@ -1469,6 +1469,20 @@ textarea:focus-visible {
 .ln-c.show { opacity: 1; transform: translateY(0); }
 .ln-sp { display: inline-block; width: 0.5em; }
 
+/* Revelado escalonado por CSS: una sola clase en el contenedor en vez de
+   recalcular por frame en JS qué letra le toca aparecer. */
+.loader-name-wrap.show .ln-c { opacity: 1; transform: translateY(0); }
+.loader-name-wrap .ln-c:nth-child(1)  { transition-delay: 0ms; }
+.loader-name-wrap .ln-c:nth-child(2)  { transition-delay: 60ms; }
+.loader-name-wrap .ln-c:nth-child(3)  { transition-delay: 120ms; }
+.loader-name-wrap .ln-c:nth-child(4)  { transition-delay: 180ms; }
+.loader-name-wrap .ln-c:nth-child(5)  { transition-delay: 240ms; }
+.loader-name-wrap .ln-c:nth-child(7)  { transition-delay: 300ms; }
+.loader-name-wrap .ln-c:nth-child(8)  { transition-delay: 360ms; }
+.loader-name-wrap .ln-c:nth-child(9)  { transition-delay: 420ms; }
+.loader-name-wrap .ln-c:nth-child(10) { transition-delay: 480ms; }
+.loader-name-wrap .ln-c:nth-child(11) { transition-delay: 540ms; }
+
 .loader-bar {
   width: 160px;
   height: 1px;
@@ -1482,6 +1496,7 @@ textarea:focus-visible {
   width: 0%;
   background: var(--orange);
   box-shadow: 0 0 8px rgba(255,92,38,0.5);
+  transition: width 1.4s var(--ease-out);
 }
 .loader-role {
   font-size: 0.7rem;

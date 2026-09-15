@@ -3,36 +3,38 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
 // ─── LOADER / PANTALLA DE CARGA ────────────────────────
 (function () {
-  const loader   = document.getElementById('loader');
-  const countEl  = document.getElementById('loaderCount');
-  const fillEl   = document.getElementById('loaderFill');
-  const chars    = document.querySelectorAll('.ln-c');
+  const loader     = document.getElementById('loader');
+  const countEl    = document.getElementById('loaderCount');
+  const fillEl     = document.getElementById('loaderFill');
+  const nameWrap   = document.querySelector('.loader-name-wrap');
   if (!loader) return;
 
   document.body.style.overflow = 'hidden';
 
-  const DURATION = 1400; // ms to count 0→100
+  const DURATION = 1400; // ms para contar 0→100
   const start    = performance.now();
-  const total    = chars.length;
 
+  // La barra y las letras las anima el propio CSS (transition) a partir de
+  // una sola clase/ancho fijado aquí; JS solo se encarga del número, que
+  // sí necesita texto dinámico. Evita escribir el DOM en cada frame.
+  requestAnimationFrame(() => {
+    if (fillEl) fillEl.style.width = '100%';
+    if (nameWrap) nameWrap.classList.add('show');
+  });
+
+  // El número se actualiza a ~20fps (suficiente para un contador de 2 dígitos)
+  // en vez de a 60fps, para reducir el trabajo en el hilo principal.
   function tick(now) {
-    const t        = Math.min((now - start) / DURATION, 1);
-    const eased    = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-    const count    = Math.floor(eased * 100);
+    const t     = Math.min((now - start) / DURATION, 1);
+    const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    const count = Math.floor(eased * 100);
 
     countEl.textContent = String(count).padStart(2, '0');
-    fillEl.style.width  = count + '%';
-
-    // Revelar los caracteres del nombre progresivamente
-    chars.forEach((c, i) => {
-      if (count >= Math.round(((i + 1) / total) * 100)) c.classList.add('show');
-    });
 
     if (t < 1) {
-      requestAnimationFrame(tick);
+      setTimeout(() => requestAnimationFrame(tick), 50);
     } else {
       countEl.textContent = '100';
-      chars.forEach(c => c.classList.add('show'));
       setTimeout(exitLoader, 280);
     }
   }
@@ -174,7 +176,7 @@ document.querySelectorAll('.magnetic').forEach(el => {
   io.observe(selector);
 })();
 
-// ─── EFECTO HOVER EN EL TEXTO DEL FOOTER ──────────────
+// ─── EFECTO HOVER EN EL TEXTO DEL FOOTER (solo con ratón) ──
 (function () {
   const svg       = document.getElementById('footerTextSvg');
   const revealGrad = document.getElementById('hf-revealMask');
@@ -182,11 +184,7 @@ document.querySelectorAll('.magnetic').forEach(el => {
   const outline    = document.getElementById('hf-outline');
   if (!svg || !revealGrad) return;
 
-  const VW = 1000, VH = 110; // matches SVG viewBox
-  let targetCx = VW / 2, targetCy = VH / 2;
-  let currentCx = VW / 2, currentCy = VH / 2;
-
-  // Animación de trazado al entrar el footer en el viewport
+  // Animación de trazado al entrar el footer en el viewport (esta sí aplica en todos los dispositivos)
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -197,7 +195,31 @@ document.querySelectorAll('.magnetic').forEach(el => {
     io.observe(svg);
   }
 
-  // Interacción del ratón sobre el área del SVG
+  // El seguimiento del cursor solo tiene sentido con ratón: en touch no hay hover
+  // y mantenía un requestAnimationFrame corriendo para siempre en cada visita.
+  if (!window.matchMedia('(pointer: fine)').matches || prefersReducedMotion) return;
+
+  const VW = 1000, VH = 110; // coincide con el viewBox del SVG
+  let targetCx = VW / 2, targetCy = VH / 2;
+  let currentCx = VW / 2, currentCy = VH / 2;
+  let looping = false;
+
+  function loop() {
+    currentCx += (targetCx - currentCx) * 0.1;
+    currentCy += (targetCy - currentCy) * 0.1;
+    revealGrad.setAttribute('cx', currentCx.toFixed(1));
+    revealGrad.setAttribute('cy', currentCy.toFixed(1));
+    // Se detiene solo al converger, en vez de correr para siempre
+    if (Math.abs(targetCx - currentCx) > 0.05 || Math.abs(targetCy - currentCy) > 0.05) {
+      requestAnimationFrame(loop);
+    } else {
+      looping = false;
+    }
+  }
+  function ensureLoop() {
+    if (!looping) { looping = true; requestAnimationFrame(loop); }
+  }
+
   svg.addEventListener('mouseenter', () => {
     if (outline) outline.style.opacity = '0.7';
   });
@@ -208,16 +230,8 @@ document.querySelectorAll('.magnetic').forEach(el => {
     const r = svg.getBoundingClientRect();
     targetCx = ((e.clientX - r.left)  / r.width)  * VW;
     targetCy = ((e.clientY - r.top)   / r.height) * VH;
+    ensureLoop();
   });
-
-  // Bucle lerp suave para mover el gradiente radial de revelado
-  (function loop() {
-    currentCx += (targetCx - currentCx) * 0.1;
-    currentCy += (targetCy - currentCy) * 0.1;
-    revealGrad.setAttribute('cx', currentCx.toFixed(1));
-    revealGrad.setAttribute('cy', currentCy.toFixed(1));
-    requestAnimationFrame(loop);
-  })();
 })();
 
 // ─── BRILLO DEL CURSOR (solo escritorio) ───────────────
