@@ -2,6 +2,9 @@
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ─── LOADER / PANTALLA DE CARGA ────────────────────────
+// No es un temporizador inventado: dura lo que tarda la página en estar
+// realmente lista (con un mínimo para que no sea un parpadeo y un tope
+// máximo por seguridad), así no le resta tiempo artificial al LCP real.
 (function () {
   const loader     = document.getElementById('loader');
   const countEl    = document.getElementById('loaderCount');
@@ -11,8 +14,15 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
   document.body.style.overflow = 'hidden';
 
-  const DURATION = 1400; // ms para contar 0→100
-  const start    = performance.now();
+  const ANIM_DURATION = 700;  // ms: ritmo visual del conteo 0→100
+  const MIN_VISIBLE   = 400;  // ms: mínimo para que se perciba el efecto
+  const MAX_WAIT      = 1400; // ms: tope por si algo tarda mucho en cargar
+  const start = performance.now();
+
+  let pageReady = document.readyState === 'complete';
+  if (!pageReady) {
+    window.addEventListener('load', () => { pageReady = true; }, { once: true });
+  }
 
   // La barra y las letras las anima el propio CSS (transition) a partir de
   // una sola clase/ancho fijado aquí; JS solo se encarga del número, que
@@ -22,10 +32,9 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
     if (nameWrap) nameWrap.classList.add('show');
   });
 
-  // El número se actualiza a ~20fps (suficiente para un contador de 2 dígitos)
-  // en vez de a 60fps, para reducir el trabajo en el hilo principal.
   function tick(now) {
-    const t     = Math.min((now - start) / DURATION, 1);
+    const elapsed = now - start;
+    const t     = Math.min(elapsed / ANIM_DURATION, 1);
     const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
     const count = Math.floor(eased * 100);
 
@@ -35,7 +44,18 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
       setTimeout(() => requestAnimationFrame(tick), 50);
     } else {
       countEl.textContent = '100';
-      setTimeout(exitLoader, 280);
+      waitForReadyThenExit();
+    }
+  }
+
+  // Una vez terminado el conteo visual, solo falta que la página esté
+  // realmente cargada (o llegar al tope máximo) para poder salir.
+  function waitForReadyThenExit() {
+    const elapsed = performance.now() - start;
+    if ((pageReady && elapsed >= MIN_VISIBLE) || elapsed >= MAX_WAIT) {
+      exitLoader();
+    } else {
+      setTimeout(waitForReadyThenExit, 50);
     }
   }
 
